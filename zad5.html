@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Licznik kliknięć</title>
+
+<script>
+let licznik = 0;
+
+function klikniecie() {
+    licznik++;
+    document.getElementById("wynik").textContent =
+        "Przycisk został kliknięty " + licznik + " razy.";
+}
+</script>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 100px;
+}
+
+button{
+    padding: 15px 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Licznik kliknięć</h2>
+
+<button onclick="klikniecie()">Test</button>
+
+<p id="wynik">Przycisk nie został jeszcze kliknięty.</p>
+
+</body>
+</html>
