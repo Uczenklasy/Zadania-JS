@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Obliczanie trójkąta</title>
+
+<style>
+body{
+    font-family: Arial;
+    background-color:#f0f0f0;
+    text-align:center;
+    margin-top:80px;
+}
+
+button{
+    padding:12px 20px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+#wynik{
+    margin-top:30px;
+    font-size:20px;
+}
+</style>
+
+<script>
+
+// procedura wykonująca obliczenia
+function obliczTrojkat(){
+
+    // pobieranie danych z okien dialogowych
+    let a = parseFloat(prompt("Podaj długość boku a"));
+    let b = parseFloat(prompt("Podaj długość boku b"));
+    let c = parseFloat(prompt("Podaj długość boku c"));
+
+    // obliczenie obwodu
+    let obwod = a + b + c;
+
+    // połowa obwodu (p)
+    let p = obwod / 2;
+
+    // wzór Herona
+    let pole = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+
+    // wyświetlenie wyniku
+    document.getElementById("wynik").innerHTML =
+        "Obwód trójkąta: " + obwod.toFixed(2) + "<br>" +
+        "Pole trójkąta: " + pole.toFixed(2);
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Kalkulator trójkąta</h1>
+
+<button onclick="obliczTrojkat()">Oblicz</button>
+
+<div id="wynik">
+Tu pojawią się wyniki obliczeń
+</div>
+
+</body>
+</html>

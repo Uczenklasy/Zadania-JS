@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Kalkulator trójkąta</title>
+
+<style>
+body{
+    font-family: Arial;
+    background-color:#f0f0f0;
+    text-align:center;
+    margin-top:80px;
+}
+
+input{
+    padding:8px;
+    margin:5px;
+    width:100px;
+}
+
+button{
+    padding:10px 18px;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+#wynik{
+    margin-top:25px;
+    font-size:20px;
+}
+</style>
+
+<script>
+
+function obliczTrojkat(){
+
+    // pobranie wartości z pól formularza
+    let a = parseFloat(document.getElementById("bokA").value);
+    let b = parseFloat(document.getElementById("bokB").value);
+    let c = parseFloat(document.getElementById("bokC").value);
+
+    // obliczenie obwodu
+    let obwod = a + b + c;
+
+    // połowa obwodu
+    let p = obwod / 2;
+
+    // wzór Herona
+    let pole = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+
+    // wyświetlenie wyników
+    document.getElementById("wynik").innerHTML =
+        "Obwód trójkąta: " + obwod.toFixed(2) + "<br>" +
+        "Pole trójkąta: " + pole.toFixed(2);
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Kalkulator trójkąta</h1>
+
+<form onsubmit="event.preventDefault(); obliczTrojkat();">
+
+<label>Bok a:</label><br>
+<input type="number" id="bokA" step="any" required><br>
+
+<label>Bok b:</label><br>
+<input type="number" id="bokB" step="any" required><br>
+
+<label>Bok c:</label><br>
+<input type="number" id="bokC" step="any" required><br>
+
+<button type="submit">Oblicz</button>
+
+</form>
+
+<div id="wynik">
+Tu pojawią się wyniki obliczeń
+</div>
+
+</body>
+</html>
